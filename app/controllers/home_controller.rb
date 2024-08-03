@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       @sheet_parser = SheetToHtmlBuilder.new(@xlsx)
       @sheet_parser.parse
     rescue => exception
-        render json: {"error": exception}, status: :not_found 
+        render json: {"error": exception}, status: :unprocessable_entity 
     end
   end
 end
