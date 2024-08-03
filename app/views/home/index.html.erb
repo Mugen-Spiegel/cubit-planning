@@ -1,0 +1,28 @@
+<style>
+    td {
+        text-align: center;
+    }
+    th{
+        text-align: center;
+    }
+        .table-striped>tbody>tr:nth-child(odd)>td, 
+        .table-striped>tbody>tr:nth-child(odd)>th {
+        background-color: green;
+    }
+</style>
+
+<div class="container text-center">
+    <h1 class="text-success">
+        Excell to HTML
+    </h1>
+    <h2>Import new sheet with same format to load in this table</h2>
+        <div class="table-responsive">
+    <table class="table table-striped table-success table-hover table-bordered" style>
+        <tbody>
+            <% @sheet_parser.result.each do |row| %>
+               <%= row.html_safe %>
+            <% end %>
+        </tbody>
+    </table>
+    </div>
+</div>
