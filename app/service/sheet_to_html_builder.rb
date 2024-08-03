@@ -11,13 +11,13 @@ class SheetToHtmlBuilder
             if i <= 4 # this iteration is for header row
                 unless row.compact.empty?
                     build_header(row, static_attributes["header_#{i}".to_sym])
-                    self.result << build_row(self.r.join).first
+                    self.result << build_row(self.r.join)
                 else 
-                    self.result << build_row(nil).first
+                    self.result << build_row(nil)
                 end
             else # this iteration is for data row
                 build_data(row)
-                self.result << build_row(self.r.join).first
+                self.result << build_row(self.r.join)
             end
             
             self.r.clear()
@@ -43,7 +43,7 @@ class SheetToHtmlBuilder
     end
 
     def build_row(row)
-        ["<tr>\n#{row}</tr> \n"]
+        "<tr>\n#{row}</tr> \n"
     end
 
     def static_attributes
